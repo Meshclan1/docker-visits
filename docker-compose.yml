@@ -1,0 +1,16 @@
+# '3' specifies the dockerfile version we are trying to use within the formatted file
+
+version: "3"
+
+# services notes 'type of Docker containers' that exists on it
+# docker-compose automatically creates both containers on the same network
+
+services:
+  redis-server:
+    image: "redis"
+  node-app:
+    restart: always
+    build: .
+    ports:
+      - "4001:8081"
+# build context must always be a directory, not a file!
